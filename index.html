@@ -1,10 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>index</title>
-</head>
-<body>
-	
-</body>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Run</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+ </head>
+ <body>
+		<div class="container">
+			<div class="bullet">
+				
+			</div>
+			<div class="person">
+				<div class="headAndBody">
+					
+				
+				</div>
+				<div class="leftHand">
+				
+				</div>
+				<div class="rightHand">
+				</div>
+				<div class="leftFoot">
+				
+				</div>
+				<div class="rightFoot">
+				</div>
+			</div>
+			<div class="ground">
+			</div>
+		</div>
+		<canvas id="canvas">
+		
+		
+		</canvas>
+	<script type="text/javascript">
+	    window.oncontextmenu=function(){return false;};
+	   	var can=document.getElementById("canvas");
+	   	var ctx=can.getContext("2d");
+	   	var w=can.width=window.innerWidth;
+	   	var h=can.height=window.innerHeight;
+	    var letters=Array(265).join("1").split("");
+	   	function draw(){
+	   		ctx.fillStyle="rgba(0,0,0,0.1)";
+	   		ctx.fillRect(0,0,w,h);
+	   		// for(var i=0;i<letters.length;i++){
+	   		// 	// 65-90 A-Z 97-122 a-z
+	   		// 	var x=i*10;
+	   		// 	var y=letters[i]=letters[i]<700+Math.random()*400?letters[i]+10:0;
+	   		// 	ctx.fillStyle="#0f0";
+	   		// 	ctx.fillText(text,x,y);
+	   		// }
+			letters.map(function(y,index){
+					var text=String.fromCharCode(65+ Math.ceil( Math.random()*57));
+		   			ctx.fillStyle="#0f0";
+		   			var x=index*10;
+		   			ctx.fillText(text,x,y);
+		   			letters[index]=  (letters[index]<800+Math.random()*204)?Number(letters[index])+10:0;
+	   		})
+	   			requestAnimationFrame(draw);
+	   	}
+	   	// setInterval(draw,1000/60);
+		draw();
+	   	function color1(){
+	              var r=Math.ceil(Math.random()*255);
+	              var g=Math.ceil(Math.random()*255);
+	              var b=Math.ceil(Math.random()*255);
+	              return "rgb("+r+","+g+","+b+")";
+	   	}
+	   </script>
+
+
+ </body>
 </html>
